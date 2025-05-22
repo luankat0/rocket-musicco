@@ -14,7 +14,14 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products, onProductClick }) => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '2rem'}}>
+    <div 
+        style={{ 
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
+            gap: '2rem',
+            width: '100%',
+            justifyItems: 'center',
+        }}>
         {products.map(product => (
             <ProductCard
                 key={product.id}

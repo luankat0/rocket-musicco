@@ -1,0 +1,28 @@
+.card {
+    background: #18181b;
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px #1113;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: scale(1.04);
+}
+
+.img {
+    width: 90%;
+    height: 170px;
+    object-fit: contain;
+    margin: 1rem 0;
+}
+
+.info {
+    color: #22d3ee;
+    font-weight: bold;
+    font-size: 1.15rem;
+}

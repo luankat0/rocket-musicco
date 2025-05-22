@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    gap: 3rem;
+    background: #18181b;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 2px 32px #1118;
+}
+
+.img {
+    width: 350px;
+    object-fit: contain;
+    border-radius: 1rem;
+    background: #27272a;
+    padding: 1rem;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.price {
+    color: #22d3ee;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.btn {
+    background: #22d3ee;
+    color: #18181b;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #0ea5e9;
+}

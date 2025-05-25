@@ -10,7 +10,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ name, image, price, onClick}) => {
     return (
-        <div className={styles.card} onClick={onClick}>
+        <div className={styles.card} onClick={onClick} tabIndex={0}>
             <div className={styles.imgWrapper}>
                 <img src={image} alt={name} className={styles.img} />
             </div>

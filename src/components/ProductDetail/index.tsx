@@ -21,7 +21,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
             <img src={image} alt={name} className={styles.img} />
             <div className={styles.info}>
                 <h2>{name}</h2>
-                <p>{description}</p>
+                <p className={styles.description}>{description}</p>
                 <span className={styles.price}>R$ {price.toFixed(2)}</span>
                 <button onClick={onAddToCart} className={styles.btn}>Adicionar ao carrinho</button>
             </div>

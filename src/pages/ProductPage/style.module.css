@@ -1,46 +1,100 @@
-.overlay {
-    position: fixed;
-    z-index: 100;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+.productPage {
     display: flex;
-    align-items: center;
+    gap: 4rem;
     justify-content: center;
-    animation: fadeIn 0.25s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0;}
-    to { opacity: 1;}
-}
-
-.modal {
+    align-items: flex-start;
+    margin: 3rem auto 0 auto;
+    max-width: 1100px;
+    padding: 2.5rem 2rem;
     background: #18181b;
     border-radius: 2rem;
     box-shadow: 0 6px 48px #0009;
-    padding: 2.5rem 2rem 2rem 2rem;
-    position: relative;
-    min-width: 400px;
-    max-width: 700px;
-    animation: modalIn 0.35s cubic-bezier(0.36, 0.66, 0.04, 1) both;
 }
 
-@keyframes modalIn {
-    0% { transform: scale(0.7) translateY(30px); opacity: 0; }
-    100% { transform: scale(1) translateY(0); opacity: 1; }
+.imgBox {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.closeBtn {
-    position: absolute;
-    top: 1.4rem;
-    right: 1.8rem;
-    background: none;
-    border: none;
-    font-size: 1.7rem;
-    color: #fafafa;
-    cursor: pointer;
-    transition: color 0.2s;
+.img {
+    width: 330px;
+    height: 330px;
+    object-fit: contain;
+    border-radius: 2rem;
+    background: #23232c;
+    box-shadow: 0 2px 24px #0008;
+    padding: 1.5rem;
 }
-.closeBtn:hover {
+
+.infoBox {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2.1rem;
+    justify-content: flex-start;
+}
+
+.title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.description {
+    color: #d1d5db;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.price {
     color: #22d3ee;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background: #22d3ee;
+    color: #18181b;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-bottom: 0.7rem;
+}
+.btn:hover {
+    background: #0ea5e9;
+    transform: translateY(-3px) scale(1.03);
+}
+
+.voltar {
+    background: #23232c;
+    color: #fafafa;
+    border: none;
+    border-radius: 1.1rem;
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+    margin-top: 0.4rem;
+    cursor: pointer;
+    transition: background 0.18s;
+}
+.voltar:hover {
+    background: #333;
+}
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: #fafafa;
 }

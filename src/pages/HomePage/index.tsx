@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ProductList from "../../components/ProductList";
 import styles from "./style.module.css";
-import productsData from "../../mocks/productsData";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -20,17 +18,12 @@ const HomePage: React.FC = () => {
           </p>
           <button
             className={styles.heroButton}
-            onClick={() => {
-              const productsSection =
-                document.getElementById("products-section");
-              if (productsSection) {
-                productsSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
+            onClick={() => navigate("/produtos")}
           >
-            Explorar Produtos
+            Conheça nossos Produtos
           </button>
         </div>
+
         <div className={styles.heroImage}>
           <div className={styles.musicNote}>🎵</div>
           <div className={styles.musicNote}>🎶</div>
@@ -57,17 +50,12 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Seção de Produtos */}
-      <section id="products-section" className={styles.productsSection}>
-        <h2 className={styles.sectionTitle}>Instrumentos em Destaque</h2>
-        <p className={styles.sectionDescription}>
-          Confira nossa seleção especial de instrumentos musicais
-        </p>
+      {/* <section id="products-section">
         <ProductList
           products={productsData}
           onProductClick={(id) => navigate(`/produto/${id}`)}
         />
-      </section>
+      </section> */}
     </div>
   );
 };

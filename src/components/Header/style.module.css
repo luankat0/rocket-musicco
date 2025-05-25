@@ -1,54 +1,58 @@
+/* src/components/Header/style.module.css */
+
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background: #0f172a;
   color: #fafafa;
   padding: 1.5rem 2rem;
-  /* border-radius: 0 0 2rem 2rem; */
-  box-shadow: 0 1px 16px #0000;
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  font-size: 2rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  cursor: pointer;
 }
 
 .logoImage {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
+  height: 40px;
 }
 
-.cartButton {
-  background: #22d3ee;
-  color: #18181b;
-  border: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
+.nav {
+  flex: 1;
+  margin-left: 2rem;
+}
+
+.navList {
+  list-style: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-.cartButton:hover {
-  background: #0ea5e9;
-}
-
-.cartIconWrapper {
-  position: relative;
-  display: inline-flex;
+.navItem {
+  cursor: pointer;
+  display: flex;
   align-items: center;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.2s;
+  margin-right: 2rem; /* espaçamento entre itens à esquerda */
+}
+
+.navItem:hover {
+  color: #22d3ee;
+}
+
+/* Empurra o último item (Carrinho) para a ponta direita */
+.navItem:last-child {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .cartIcon {
   font-size: 1.2rem;
+  margin-right: 0.5rem;
 }
 
 .cartBadge {

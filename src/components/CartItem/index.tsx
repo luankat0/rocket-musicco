@@ -1,13 +1,13 @@
 import React from "react";
+import type { CartItem as CartItemType} from "../../types/CartItem";
 import styles from "./style.module.css";
-import type { CartItem } from "../../types/CartItem";
 
-interface CartItemProps {
-  item: CartItem;
+interface CartItemComponentProps {
+  item: CartItemType;
   onRemove: (id: string) => void;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
+const CartItemComponent: React.FC<CartItemComponentProps> = ({ item, onRemove }) => {
   return (
     <div className={styles.cartItem}>
       <img src={item.image} alt={item.name} className={styles.img} />
@@ -24,4 +24,4 @@ const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
   );
 };
 
-export default CartItem;
+export default CartItemComponent;

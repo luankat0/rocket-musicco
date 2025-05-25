@@ -7,10 +7,10 @@ import Header from "./components/Header";
 import { CartProvider } from "./contexts/CartContext";
 
 const App: React.FC = () => {
-  return (
+	return (
     <CartProvider>
       <Router>
-        <Header onCartClick={() => (window.location.href = "/carrinho")} />
+        <Header />
         <main style={{ padding: "2rem" }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -20,7 +20,7 @@ const App: React.FC = () => {
         </main>
       </Router>
     </CartProvider>
-  );
+	);
 };
 
 export default App;

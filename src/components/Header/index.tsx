@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { useCart } from "../../contexts/CartContext";
 import styles from "./style.module.css";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/Logo.png";
 
 
 

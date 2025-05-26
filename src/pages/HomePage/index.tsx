@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ProductList from "../../components/ProductList";
+import productsData from "../../mocks/productsData";
 import styles from "./style.module.css";
 
 const HomePage: React.FC = () => {
@@ -30,7 +32,6 @@ const HomePage: React.FC = () => {
           <div className={styles.musicNote}>🎼</div>
         </div>
       </section>
-
       {/* Seção de Destaques */}
       <section className={styles.featuresSection}>
         <div className={styles.feature}>
@@ -48,14 +49,20 @@ const HomePage: React.FC = () => {
           <h3>Melhor Preço</h3>
           <p>Preços competitivos e condições especiais de pagamento</p>
         </div>
-      </section>
-
-      {/* <section id="products-section">
+      </section>{" "}
+      <section className={styles.productsSection}>
+        <h2 className={styles.sectionTitle}>Nossos Instrumentos</h2>
         <ProductList
-          products={productsData}
+          products={productsData.slice(0, 4)}
           onProductClick={(id) => navigate(`/produto/${id}`)}
         />
-      </section> */}
+        <button
+          className={styles.viewAllButton}
+          onClick={() => navigate("/produtos")}
+        >
+          Ver todos os produtos
+        </button>
+      </section>
     </div>
   );
 };

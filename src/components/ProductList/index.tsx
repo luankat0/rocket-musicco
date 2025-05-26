@@ -1,37 +1,42 @@
-import React from 'react'
-import ProductCard from '../ProductCard'
+import React from "react";
+import { formatCurrency } from "../../utils/format";
+import styles from "./style.module.css";
 
 interface Product {
-    id: string
-    name: string
-    image: string
-    price: number
+  id: string;
+  name: string;
+  image: string;
+  price: number;
 }
 
-interface ProductListProps {
-    products: Product[]
-    onProductClick: (id: string) => void
+interface Props {
+  products: Product[];
+  onProductClick: (id: string) => void;
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products, onProductClick }) => (
-    <div 
-        style={{ 
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
-            gap: '2rem',
-            width: '100%',
-            justifyItems: 'center',
-        }}>
-        {products.map(product => (
-            <ProductCard
-                key={product.id}
-                name={product.name}
-                image={product.image}
-                price={product.price}
-                onClick={() => onProductClick(product.id)}
-            />
-        ))}
-    </div>
-)
+const ProductList: React.FC<Props> = ({ products, onProductClick }) => (
+  <div className={styles.grid}>
+    {products.map((product) => (
+      <div
+        className={styles.card}
+        key={product.id}
+        onClick={() => onProductClick(product.id)}
+      >
+        <div className={styles.imageContainer}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className={styles.image}
+          />
+          <div className={styles.overlay}>
+            <span>Ver detalhes</span>
+          </div>
+        </div>
+        <h2 className={styles.title}>{product.name}</h2>
+        <p className={styles.price}>{formatCurrency(product.price)}</p>
+      </div>
+    ))}
+  </div>
+);
 
-export default ProductList
+export default ProductList;

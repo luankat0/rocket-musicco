@@ -1,8 +1,10 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext";
-import styles from "./style.module.css";
 import productsData from "../../mocks/productsData";
+import { useCart } from "../../contexts/CartContext";
+import { formatCurrency } from "../../utils/format";
+import styles from "./style.module.css";
+import { FaArrowLeft } from "react-icons/fa";
 
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -10,6 +12,7 @@ const ProductPage: React.FC = () => {
   const navigate = useNavigate();
 
   const product = productsData.find((p) => p.id === id);
+
   if (!product) {
     return (
       <div className={styles.notFound}>
@@ -20,29 +23,35 @@ const ProductPage: React.FC = () => {
       </div>
     );
   }
+
   return (
-    <section className={styles.productPage}>
-      <div className={styles.imgBox}>
-        <img src={product.image} alt={product.name} className={styles.img} />
-      </div>
-      <div className={styles.infoBox}>
-        <h1 className={styles.title}>{product.name}</h1>
-        <p className={styles.description}>{product.description}</p>
-        <div className={styles.price}>R$ {product.price.toFixed(2)}</div>{" "}
+    <div className={styles.container}>
         <button
-          className={styles.btn}
-          onClick={() => {
-            addToCart(product);
-            navigate("/");
-          }}
+            className={styles.backBtn}
+            onClick={() => navigate("/produtos")}
         >
-          Adicionar ao Carrinho
+           <FaArrowLeft /> Voltar para Produtos
         </button>
-        <button className={styles.voltar} onClick={() => navigate("/")}>
-          Voltar
-        </button>
-      </div>
-    </section>
+
+        <div className={styles.detail}>
+            <img 
+                src={product.image}
+                alt={product.name} 
+                className={styles.image}
+            />
+            <div className={styles.info}>
+                <h1 className={styles.name}>{product.name}</h1>
+                <p className={styles.description}>{product.description}</p>
+                <p className={styles.price}>{formatCurrency(product.price)}</p>
+                <button
+                    className={styles.addButton}
+                    onClick={() => addToCart(product)}
+                >
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+        </div>
+    </div>
   );
 };
 

@@ -1,25 +1,33 @@
-import React from 'react'
-import styles from './style.module.css'
+import React from "react";
+import { formatCurrency } from "../../utils/format";
+import styles from "./style.module.css";
 
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+}
 interface ProductCardProps {
-    name: string
-    image: string
-    price: number
-    onClick: () => void
+  product: Product;
+  onClick: (id: string) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, image, price, onClick}) => {
-    return (
-        <div className={styles.card} onClick={onClick} tabIndex={0}>
-            <div className={styles.imgWrapper}>
-                <img src={image} alt={name} className={styles.img} />
-            </div>
-            <div className={styles.info}>
-                <h3 className={styles.name}>{name}</h3>
-                <span className={styles.price}>R$ {price.toFixed(2)}</span>
-            </div>
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
+  return (
+    <div className={styles.card} onClick={() => onClick(product.id)}>
+      <div className={styles.imgWrapper}>
+        <img src={product.image} alt={product.name} className={styles.image} />
+        <div className={styles.overlay}>
+          <span>Ver detalhes</span>
         </div>
-    )
-}
+      </div>
+      <div className={styles.info}>
+        <h2 className={styles.name}>{product.name}</h2>
+        <p className={styles.price}>{formatCurrency(product.price)}</p>
+      </div>
+    </div>
+  );
+};
 
-export default ProductCard
+export default ProductCard;

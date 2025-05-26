@@ -5,7 +5,32 @@
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 0.5rem;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #22d3ee,
+    #3b82f6,
+    transparent
+  );
 }

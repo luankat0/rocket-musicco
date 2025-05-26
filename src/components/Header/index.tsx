@@ -16,20 +16,24 @@ const Header: React.FC = () => {
         <img src={Logo} alt="Log da Musicco" className={styles.logoImage} />
       </div>
       <nav className={styles.nav}>
+        {" "}
         <ul className={styles.navList}>
-            <li className={styles.navItem} onClick={() => navigate("/")}>
-                Home
-            </li>
-            <li className={styles.navItem} onClick={() => navigate("/produtos")}>
-                Produtos
-            </li>
-            <li className={styles.navItem} onClick={() => navigate("/carrinho")}>
-                <FaCartArrowDown className={styles.cartIcon} />
-                Carrinho
-                {itemCount > 0 && (
-                    <span className={styles.cartBadge}>{itemCount}</span>
-                )}
-            </li>
+          <li className={styles.navItem} onClick={() => navigate("/")}>
+            Home
+          </li>
+          <li className={styles.navItem} onClick={() => navigate("/produtos")}>
+            Produtos
+          </li>
+          <li className={styles.navItem} onClick={() => navigate("/sobre")}>
+            Sobre
+          </li>
+          <li className={styles.navItem} onClick={() => navigate("/carrinho")}>
+            <FaCartArrowDown className={styles.cartIcon} />
+            Carrinho
+            {itemCount > 0 && (
+              <span className={styles.cartBadge}>{itemCount}</span>
+            )}
+          </li>
         </ul>
       </nav>
     </header>
